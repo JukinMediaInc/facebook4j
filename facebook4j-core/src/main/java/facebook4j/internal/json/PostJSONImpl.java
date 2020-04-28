@@ -619,6 +619,8 @@ final class PostJSONImpl extends FacebookResponseImpl implements Post, java.io.S
         private String title;
         private String type;
         private String url;
+        private String unshimmedUrl;
+        private String mediaType;
         private List<Attachment> subattachments;
 
         AttachmentJSONImpl(JSONObject json) throws FacebookException {
@@ -645,6 +647,8 @@ final class PostJSONImpl extends FacebookResponseImpl implements Post, java.io.S
                 }
                 title = getRawString("title", json);
                 type = getRawString("type", json);
+                unshimmedUrl = getRawString("unshimmed_url", json);
+                mediaType = getRawString("media_type", json);
                 if (!json.isNull("subattachments")) {
                     JSONArray attachmentsJSONArray = json.getJSONObject("subattachments").getJSONArray("data");
                     final int size = attachmentsJSONArray.length();
@@ -677,6 +681,14 @@ final class PostJSONImpl extends FacebookResponseImpl implements Post, java.io.S
             return url;
         }
 
+        public String getUnshimmedUrl() {
+            return unshimmedUrl;
+        }
+
+        public String getMediaType() {
+            return mediaType;
+        }
+
         public List<Attachment> getSubattachments() {
             return subattachments;
         }
@@ -704,6 +716,8 @@ final class PostJSONImpl extends FacebookResponseImpl implements Post, java.io.S
                     ", title='" + title + '\'' +
                     ", type='" + type + '\'' +
                     ", url='" + url + '\'' +
+                    ", unshimmedUrl='" + unshimmedUrl + '\'' +
+                    ", mediaType='" + mediaType + '\'' +
                     ", subattachments=" + subattachments +
                     '}';
         }
