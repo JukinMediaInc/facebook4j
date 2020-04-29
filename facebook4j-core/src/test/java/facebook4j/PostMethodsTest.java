@@ -1007,7 +1007,7 @@ public class PostMethodsTest extends MockFacebookTestBase {
             assertThat(facebook.getHttpMethod(), is(RequestMethod.POST));
             assertThat(facebook.getEndpointURL(), is(pathOf("/eclipse/feed")));
             assertThat(facebook.getHttpParameters(), hasPostParameter("message", "test message"));
-            assertThat(facebook.getHttpParameters(), hasPostJsonParameter("feed_targeting", "{\"genders\":{\"value\":1},\"geo_locations\":{\"countries\":[\"US\",\"GB\"]}}"));
+            assertThat(facebook.getHttpParameters(), hasPostJsonParameter("feed_targeting", "{\"genders\":{\"value\":1},\"geo_locations\":{\"countries\":[\"GB\",\"US\"]}}"));
 
             assertThat(actual, is("137246726435626_185932178233747"));
         }
