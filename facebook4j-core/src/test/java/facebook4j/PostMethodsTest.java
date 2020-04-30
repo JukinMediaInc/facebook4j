@@ -585,6 +585,21 @@ public class PostMethodsTest extends MockFacebookTestBase {
             assertThat(actual.getActions().get(2).getName(), is("Share"));
             assertThat(actual.getActions().get(2).getLink().toString(), is("http://networkedblogs.com/hGWk3?a=share"));
             assertThat(actual.getScheduledPublishTime(), is(nullValue()));
+            assertThat(actual.getAttachments(), is(notNullValue()));
+
+            assertThat(actual.getAttachments().get(0).getId(), is("10201168076257947"));
+            assertThat(actual.getAttachments().get(0).getTitle(), is("Why Big History?"));
+            assertThat(actual.getAttachments().get(0).getUrl(), is(nullValue()));
+            assertThat(actual.getAttachments().get(0).getType(), is(nullValue()));
+            assertThat(actual.getAttachments().get(0).getUnshimmedUrl(), is("https://www.facebook.com/BillGates/videos/10201168076257947/"));
+            assertThat(actual.getAttachments().get(0).getMediaType(), is("video"));
+
+            assertThat(actual.getAttachments().get(1).getId(), is("690435208376388"));
+            assertThat(actual.getAttachments().get(1).getTitle(), is("\"Adventure\" l At Home With Olaf"));
+            assertThat(actual.getAttachments().get(1).getUrl(), is(nullValue()));
+            assertThat(actual.getAttachments().get(1).getType(), is(nullValue()));
+            assertThat(actual.getAttachments().get(1).getUnshimmedUrl(), is("https://www.facebook.com/WaltDisneyStudios/videos/690435208376388/"));
+            assertThat(actual.getAttachments().get(1).getMediaType(), is("video"));
         }
 
         @Test
